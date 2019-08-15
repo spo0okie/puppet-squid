@@ -1,0 +1,4 @@
+update\.microsoft\.com
+update\.windows\.com
+windowsupdate\.com
+apple\.com
