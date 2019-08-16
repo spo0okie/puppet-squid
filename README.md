@@ -1,6 +1,6 @@
 # puppet-squid
 модуль управления squid 
-требует repos::squid 
+требует repos::squid https://github.com/spo0okie/puppet-repos/blob/master/manifests/squid.pp
 состоит из классов 
 ## squid 
 устанавливает типовую конфигурацию сквида 
