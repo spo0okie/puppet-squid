@@ -5,12 +5,14 @@ class squid {
 	} ->
 	file {'/etc/squid/squid.conf':
 		ensure	=> file,
-		mode	=> '0755',
+		mode	=> '0640',
+		owner	=> 'squid',
 		source	=> 'puppet:///modules/squid/squid.conf',
 	} ->
 	file {'/etc/squid/squidCA.pem':
 		ensure	=> file,
-		mode	=> '0755',
+		mode	=> '0640',
+		owner	=> 'squid',
 		source	=> 'puppet:///modules/squid/squidCA.pem',
 	} ->
 	file {'/etc/squid/url-list':
