@@ -24,8 +24,8 @@ class squid {
 		unless	=> 'test -d /var/lib/ssl_db',
 		path => '/bin:/sbin:/usr/bin:/usr/sbin',
 	}->
-	service {
-		'squid':	ensure => running
+	service {'squid':
+		ensure	=> running
 	}
 	mc_conf::hotlist {
 		'/etc/squid': ;
