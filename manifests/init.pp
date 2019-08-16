@@ -19,6 +19,11 @@ class squid {
 		source	=> 'puppet:///modules/squid/url-list',
 		recurse	=> true
 	} ->
+	exec {'init squid cert storage': 
+		command => '/usr/lib64/squid/security_file_certgen -c -s /var/lib/ssl_db -M 4MB',
+		unless	=> 'test -d /var/lib/ssl_db',
+		path => '/bin:/sbin:/usr/bin:/usr/sbin',
+	}->
 	service {
 		'squid':	ensure => running
 	}
