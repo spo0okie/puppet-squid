@@ -11,7 +11,7 @@ define squid::iptables(
 	} ->
 	exec {'run DNAT for Squid':
 		command		=> '/etc/init.d/squid.iptables',
-		unless		=> "iptables11 -nL -t nat | grep 'to:$title:3130'",
+		unless		=> "iptables -nL -t nat | grep 'to:$title:3130'",
 		path		=> '/bin:/sbin:/usr/bin:/usr/sbin'
 	}
 }
