@@ -20,8 +20,8 @@ depeshare\.com
 depositfiles\.com
 desiupload\.net
 dfiles\.ru
-DivShare\.com
-DropBoks\.com
+divdhare\.com
+dropboks\.com
 dropbox\.com
 dsvdata\.ru
 dump\.ru
@@ -174,8 +174,8 @@ sharing\.ru
 showmypc\.com
 simpleupload\.de
 slil\.ru
-Slil\.ru
 snaggys\.com
+spac.me
 speedshare\.org
 speedyshare\.com
 spread-it\.com
