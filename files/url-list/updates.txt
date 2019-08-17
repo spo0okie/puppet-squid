@@ -3,5 +3,6 @@ update\.microsoft\.com
 update\.windows\.com
 windowsupdate\.com
 #не знаю что именно оно делает, но думаю что можно и обойтись
-miui.com
-xiaomi.com
+miui\.com
+xiaomi\.com
+xiaomi\.net
