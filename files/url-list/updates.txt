@@ -3,6 +3,7 @@ apple\.com
 
 #ну попробуем. трафика может и не много, зато соединений куча
 android\.googleapis\.com
+play\.googleapis\.com
 
 #Huawei cloud
 hicloud\.com
@@ -16,3 +17,7 @@ xiaomi\.net
 update\.microsoft\.com
 update\.windows\.com
 windowsupdate\.com
+
+#X3
+app-measurement\.com
+ccf4ab51771cacd46d\.com
