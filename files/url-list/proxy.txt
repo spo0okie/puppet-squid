@@ -36,6 +36,7 @@ anonymousurfing\.info
 anonymsp\.ru
 anotherproxy\.com
 antifw\.tk
+anticenz\.org
 antiproxy\.com
 aproxysite\.com
 arandomproxy\.com
@@ -43,7 +44,6 @@ arkhaim\.ru
 basic\.3proxy\.com
 bbscenter\.ru
 behidden\.com
-beHidden\.com
 bentley\.ru
 betaproxy\.com
 bigate\.com
@@ -154,6 +154,8 @@ goproxing\.com
 gothru\.info
 guardster\.com
 gunshin\.net
+#добавлено 2019-08-17, создавало большой трафик на седтывисе, гугл говорит что то ли вирус то ли реклама
+gvt1\.com
 h0h0h0\.com
 hackingtruths\.org
 happydayz\.ru
@@ -291,7 +293,6 @@ proxybrowsing\.com
 proxybus\.com
 proxybuster\.net
 proxycat\.com
-ProxyCat\.com
 proxy\.cd
 proxychatroom\.com
 proxycraze\.com
@@ -377,6 +378,8 @@ scaryproxy\.com
 schematic\.org
 schnarre-monika\.celebrityblog\.net
 search\.sicomm\.us
+#добавлено 2019-08-17, создавало большой трафик на седтывисе
+sec-tunnel\.com
 secuproxy\.com
 seefrom\.me
 see-room\.ru
