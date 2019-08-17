@@ -10,6 +10,7 @@ ad\.clickhere\.ru
 adfox
 ads\.interactivetools\.com
 ads\.
+adservice\.
 awaps\.yandex\.ru
 bs\.yandex\.ru
 \.clx\.ru
