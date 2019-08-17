@@ -24,6 +24,6 @@ ngs\.ru
 pics\.rbc\.ru
 realmedia-a800\.d4p\.net
 reklama\.utro\.ru
-www\.clx\.ru
-www\.hutor\.ru
-www25\.valueclick\.ru
+\.clx\.ru
+\.hutor\.ru
+\.valueclick\.ru
