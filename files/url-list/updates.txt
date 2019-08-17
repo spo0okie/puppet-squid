@@ -1,8 +1,18 @@
+#iphones
 apple\.com
-update\.microsoft\.com
-update\.windows\.com
-windowsupdate\.com
+
+#ну попробуем. трафика может и не много, зато соединений куча
+android\.googleapis\.com
+
+#Huawei cloud
+hicloud\.com
+
 #не знаю что именно оно делает, но думаю что можно и обойтись
 miui\.com
 xiaomi\.com
 xiaomi\.net
+
+#ms
+update\.microsoft\.com
+update\.windows\.com
+windowsupdate\.com
