@@ -29,6 +29,11 @@ class squid {
 		unless	=> 'test -d /var/lib/ssl_db',
 		path => '/bin:/sbin:/usr/bin:/usr/sbin',
 	}->
+	exec {'init squid swap storage': 
+		command => 'squid -z',
+		unless	=> 'test -d /var/spool/squid/00',
+		path => '/bin:/sbin:/usr/bin:/usr/sbin',
+	}->
 	service {'squid':
 		ensure	=> running
 	}
