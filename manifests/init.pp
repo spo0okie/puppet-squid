@@ -21,7 +21,7 @@ class squid {
 		ensure	=> directory,
 		mode	=> '0755',
 		source	=> 'puppet:///modules/squid/url-list',
-		recurse	=> true
+		recurse	=> true,
 		notify	=> Service['squid'],
 	} ->
 	exec {'init squid cert storage': 
