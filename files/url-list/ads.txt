@@ -8,8 +8,8 @@
 81\.19\.69\.6
 ad\.clickhere\.ru
 adfox
-ad\.intl\.xiaomi\.com
 ads\.interactivetools\.com
+ads\.
 awaps\.yandex\.ru
 bs\.yandex\.ru
 \.clx\.ru
@@ -17,6 +17,7 @@ counter\.rambler\.ru
 dclk\.imho\.ru
 doubleclick\.net
 engine\.awaps\.net
+google-analytics\.com
 \.hotlog\.ru
 hotlog\.ru
 \.hutor\.ru
