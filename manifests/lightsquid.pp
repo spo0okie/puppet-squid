@@ -14,6 +14,9 @@ class squid::lightsquid {
 		user			=> root,
 		minute			=> '*/7'
 	} ->
+	file {'/etc/cron.d/lightsquid':
+		ensure			=> absent,
+	} ->
 	apache::vhost { 'lightsquid.html':
 		port			=> '3181',
 		servername		=> "${::fqdn}",
