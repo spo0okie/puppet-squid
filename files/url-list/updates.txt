@@ -17,6 +17,15 @@ xiaomi\.net
 update\.microsoft\.com
 update\.windows\.com
 windowsupdate\.com
+officecdn\.microsoft\.com\.edgesuite\.net
+officecdn\.microsoft\.com
+#это вероятно антивирус от МС обновляется тут
+definitionupdates\.microsoft\.com
+#телеметрия это не обновления конечно, но отдельного списка нет и наверно нет смысла
+watson\.telemetry\.microsoft\.com
+
+#Samsung
+samsungapps\.com
 
 #X3
 app-measurement\.com
