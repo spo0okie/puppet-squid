@@ -1,13 +1,22 @@
 class squid {
-	include repos::squid
+	#с 4 декабря 2019 основной репозиторий недоступен. используем копию
+	include repos::squid_mirror
 	package {['squid', 'squid-helpers']:
-	 	ensure => installed
+	 	ensure => "4.2-1.el${::operatingsystemmajrelease}"
+		
 	} ->
 	file {'/etc/squid/squid.conf':
 		ensure	=> file,
 		mode	=> '0640',
 		owner	=> 'squid',
 		source	=> 'puppet:///modules/squid/squid.conf',
+		notify	=> Service['squid'],
+	} ->
+	file {'/etc/squid/pools.conf':
+		ensure	=> file,
+		mode	=> '0640',
+		owner	=> 'squid',
+		source	=> 'puppet:///modules/squid/pools.conf',
 		notify	=> Service['squid'],
 	} ->
 	file {'/etc/squid/squidCA.pem':
@@ -35,7 +44,8 @@ class squid {
 		path => '/bin:/sbin:/usr/bin:/usr/sbin',
 	}->
 	service {'squid':
-		ensure	=> running
+		ensure	=> running,
+		enable	=> true
 	}
 	mc_conf::hotlist {
 		'/etc/squid': ;
