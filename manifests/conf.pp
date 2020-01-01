@@ -68,13 +68,12 @@ class squid::conf {
 		owner	=> $owner,
 		notify	=> Service['squid'],
 	} ->
-	file {'/var/log/squid/access.log':
-		ensure	=> file,
-		mode	=> '0644',
-		owner	=> $owner,
-		notify	=> Service['squid'],
-	} ->
-	file {'/var/log/squid/cache.log':
+	file {
+		[
+			'/var/log/squid/access.log',
+			'/var/log/squid/cache.log',
+			'/var/log/squid/swap.state'
+		]:
 		ensure	=> file,
 		mode	=> '0644',
 		owner	=> $owner,
