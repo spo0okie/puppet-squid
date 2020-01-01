@@ -59,7 +59,7 @@ class squid::conf {
 	file {['/var/spool/squid','/var/log/squid']:
 		ensure	=> directory,
 		mode	=> '0755',
-		recursive => true,
+		recurse	=> true,
 		owner	=> $owner,
 		notify	=> Service['squid'],
 	} ->
