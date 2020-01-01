@@ -72,7 +72,7 @@ class squid::conf {
 		[
 			'/var/log/squid/access.log',
 			'/var/log/squid/cache.log',
-			'/var/log/squid/swap.state'
+			'/var/spool/squid/swap.state'
 		]:
 		ensure	=> file,
 		mode	=> '0644',
