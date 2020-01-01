@@ -68,6 +68,18 @@ class squid::conf {
 		owner	=> $owner,
 		notify	=> Service['squid'],
 	} ->
+	file {'/var/log/squid/access.log':
+		ensure	=> file,
+		mode	=> '0644',
+		owner	=> $owner,
+		notify	=> Service['squid'],
+	} ->
+	file {'/var/log/squid/cache.log':
+		ensure	=> file,
+		mode	=> '0644',
+		owner	=> $owner,
+		notify	=> Service['squid'],
+	} ->
 	exec {'init squid swap storage': 
 		command => 'squid -z > /var/log/squid/init.log 2>&1',
 		unless	=> 'test -d /var/spool/squid/00',
