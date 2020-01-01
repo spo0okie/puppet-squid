@@ -451,8 +451,6 @@ unlumen\.ru
 urlbl\.ru
 urlencoded\.com
 userbeam\.de
-#анонимайзер ютуба
-viatube\.xyz
 videoeditors\.info
 viewtheweb\.info
 vimports\.ru

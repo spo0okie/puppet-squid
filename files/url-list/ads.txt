@@ -12,6 +12,10 @@ ads\.interactivetools\.com
 ads\.
 adservice\.
 awaps\.yandex\.ru
+#яндекс директ
+an\.yandex\.ru
+#метрика яндекс
+mc\.yandex\.ru
 bs\.yandex\.ru
 \.clx\.ru
 counter\.rambler\.ru

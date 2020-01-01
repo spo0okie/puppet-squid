@@ -3,7 +3,7 @@ class squid::lightsquid {
 		ensure			=> installed,
 	} ->
 	file {'/var/www/lightsquid':
-		require			=> Package ['httpd','perl-CGI'],
+		require			=> Package['httpd','perl-CGI'],
 		ensure			=> directory,
 		mode			=> '0755',
 		source			=> 'puppet:///modules/squid/lightsquid',
@@ -13,9 +13,6 @@ class squid::lightsquid {
 		command			=> '/var/www/lightsquid/lightparser.pl',
 		user			=> root,
 		minute			=> '*/7'
-	} ->
-	file {'/etc/cron.d/lightsquid':
-		ensure			=> absent,
 	} ->
 	apache::vhost { 'lightsquid.html':
 		port			=> '3181',

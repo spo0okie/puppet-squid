@@ -27,3 +27,4 @@ gflash\.ru
 nogame\.ru
 realdosug\.ru
 scanword\.ru
+games\.metaservices\.microsoft\.com

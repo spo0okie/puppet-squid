@@ -1,6 +1,6 @@
 class squid::sqstat {
 	file {'/var/www/sqstat':
-		require		=> Package ['httpd'],
+		require		=> Package['httpd'],
 		ensure		=> directory,
 		mode		=> '0755',
 		source		=> 'puppet:///modules/squid/sqstat',

@@ -2,6 +2,7 @@
 apple\.com
 
 #ну попробуем. трафика может и не много, зато соединений куча
+android\.clients\.google\.com
 android\.googleapis\.com
 play\.googleapis\.com
 
@@ -17,16 +18,20 @@ xiaomi\.net
 update\.microsoft\.com
 update\.windows\.com
 windowsupdate\.com
+dl\.delivery\.mp\.microsoft\.com
+
+#хз что это, но куча траффика
 officecdn\.microsoft\.com\.edgesuite\.net
 officecdn\.microsoft\.com
-#это вероятно антивирус от МС обновляется тут
-definitionupdates\.microsoft\.com
-#телеметрия это не обновления конечно, но отдельного списка нет и наверно нет смысла
 watson\.telemetry\.microsoft\.com
-
-#Samsung
-samsungapps\.com
+events\.data\.microsoft\.com
 
 #X3
 app-measurement\.com
 ccf4ab51771cacd46d\.com
+
+#подозреваю что это onedrive
+oneclient\.sfx\.ms
+
+#ктото чтото качал и меня это напрягало //Ревякин
+mycdn.com
