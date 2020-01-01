@@ -54,14 +54,26 @@ class squid::conf {
 	exec {'init squid cert storage': 
 		command => '/usr/libexec/security_file_certgen -c -s /var/lib/ssl_db -M 4MB',
 		unless	=> 'test -d /var/lib/ssl_db',
-		path => '/bin:/sbin:/usr/bin:/usr/sbin',
+		path	=> '/bin:/sbin:/usr/bin:/usr/sbin',
 	}->
 	file {['/var/spool/squid','/var/log/squid']:
 		ensure	=> directory,
-		recurse	=> true,
+		mode	=> '0755',
 		owner	=> $owner,
 		notify	=> Service['squid'],
 	} ->
+	exec {'squld logs chown':
+		command	=> "chown -R nobody:nobody /var/log/squid",
+		require	=> File['/var/log/squid'],
+		unless	=> 'ls -lhR /var/log/squid | grep nobody',
+		path	=> '/bin:/sbin:/usr/bin:/usr/sbin',
+	}
+	exec {'squld spool chown':
+		command	=> "chown -R nobody:nobody /var/spool/squid",
+		require	=> File['/var/spool/squid'],
+		unless	=> 'ls -lhR /var/spool/squid | grep nobody',
+		path	=> '/bin:/sbin:/usr/bin:/usr/sbin',
+	}
 	exec {'init squid swap storage': 
 		command => 'squid -z > /var/log/squid/init.log 2>&1',
 		unless	=> 'test -d /var/spool/squid/00',
