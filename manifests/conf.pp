@@ -56,26 +56,10 @@ class squid::conf {
 		unless	=> 'test -d /var/lib/ssl_db',
 		path => '/bin:/sbin:/usr/bin:/usr/sbin',
 	}->
-	file {'/var/spool/squid':
+	file {['/var/spool/squid','/var/log/squid']:
 		ensure	=> directory,
 		mode	=> '0755',
-		owner	=> $owner,
-		notify	=> Service['squid'],
-	} ->
-	file {'/var/log/squid':
-		ensure	=> directory,
-		mode	=> '0755',
-		owner	=> $owner,
-		notify	=> Service['squid'],
-	} ->
-	file {
-		[
-			'/var/log/squid/access.log',
-			'/var/log/squid/cache.log',
-			'/var/spool/squid/swap.state'
-		]:
-		ensure	=> file,
-		mode	=> '0644',
+		recursive => true,
 		owner	=> $owner,
 		notify	=> Service['squid'],
 	} ->
