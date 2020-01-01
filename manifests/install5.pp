@@ -23,6 +23,7 @@ class squid::install5 {
 	#собираем
 	exec {'squid5_build_libtoolize':
 		command => 'libtoolize --force',
+		require => Package['libtool-ltdl-devel'],
 		unless	=> "test -e $srcdir/cfgaux/ltmain.sh",
 		cwd		=> $srcdir,
 		path	=> '/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin'
