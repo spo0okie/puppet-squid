@@ -64,7 +64,8 @@ class squid::install5 {
 		unless	=> "test -e $srcdir/Makefile",
 	} ->
 	exec {'squid5_build_make_install':
-		command => 'make install',
+		command => "make install || rm -rf $tmpdir",
+#		command => "make install",
 		timeout	=> 3000,	#сборка быстро не делается
 		cwd		=> $srcdir,
 		path	=> '/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin',

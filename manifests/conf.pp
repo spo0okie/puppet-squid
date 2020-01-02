@@ -65,13 +65,13 @@ class squid::conf {
 	exec {'squld logs chown':
 		command	=> "chown -R nobody:nobody /var/log/squid",
 		require	=> File['/var/log/squid'],
-		unless	=> 'ls -lhR /var/log/squid | grep nobody',
+		unless	=> 'ls -lhR /var/log/squid/ | grep nobody',
 		path	=> '/bin:/sbin:/usr/bin:/usr/sbin',
 	}
 	exec {'squld spool chown':
 		command	=> "chown -R nobody:nobody /var/spool/squid",
 		require	=> File['/var/spool/squid'],
-		unless	=> 'ls -lhR /var/spool/squid | grep nobody',
+		unless	=> 'ls -lhR /var/spool/squid/ | grep nobody',
 		path	=> '/bin:/sbin:/usr/bin:/usr/sbin',
 	}
 	exec {'init squid swap storage': 
