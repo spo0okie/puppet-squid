@@ -35,3 +35,6 @@ oneclient\.sfx\.ms
 
 #ктото чтото качал и меня это напрягало //Ревякин
 mycdn.com
+
+#windows store
+wns\.windows\.com
