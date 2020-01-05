@@ -45,7 +45,7 @@ class squid::conf {
 	} ->
 	file {'/etc/squid/url-list':
 		ensure	=> directory,
-		mode	=> '0755',
+		mode	=> '0775',
 		owner	=> $owner,
 		source	=> 'puppet:///modules/squid/url-list',
 		recurse	=> true,
@@ -58,7 +58,7 @@ class squid::conf {
 	}->
 	file {['/var/spool/squid','/var/log/squid']:
 		ensure	=> directory,
-		mode	=> '0755',
+		mode	=> '0775',
 		owner	=> $owner,
 		notify	=> Service['squid'],
 	} ->
