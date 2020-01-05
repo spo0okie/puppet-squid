@@ -51,27 +51,32 @@ class squid::conf {
 		recurse	=> true,
 		notify	=> Service['squid'],
 	} ->
-	exec {'init squid cert storage': 
-		command => '/usr/libexec/security_file_certgen -c -s /var/lib/ssl_db -M 4MB',
-		unless	=> 'test -d /var/lib/ssl_db',
-		path	=> '/bin:/sbin:/usr/bin:/usr/sbin',
-	}->
-	file {['/var/spool/squid','/var/log/squid']:
+	file {['/var/spool/squid','/var/log/squid','/var/lib/ssl_db']:
 		ensure	=> directory,
 		mode	=> '0775',
-		owner	=> $owner,
 		notify	=> Service['squid'],
 	} ->
+	exec {'init squid cert storage': 
+		command => '/usr/libexec/security_file_certgen -c -s /var/lib/ssl_db -M 4MB',
+		unless	=> 'test -f /var/lib/ssl_db/index.txt',
+		path	=> '/bin:/sbin:/usr/bin:/usr/sbin',
+	}->
 	exec {'squld logs chown':
-		command	=> "chown -R nobody:nobody /var/log/squid",
+		command	=> "chown -R $owner:$owner /var/log/squid",
 		require	=> File['/var/log/squid'],
-		unless	=> "ls -ld /var/log/squid/ |grep $owner",
+		unless	=> "ls -ld /var/log/squid/ |grep '$owner $owner'",
+		path	=> '/bin:/sbin:/usr/bin:/usr/sbin',
+	} ->
+	exec {'squld ssl_db chown':
+		command	=> "chown -R $owner:$owner /var/lib/ssl_db",
+		require	=> File['/var/lib/ssl_db'],
+		unless	=> "ls -ld /var/lib/ssl_db |grep '$owner $owner'",
 		path	=> '/bin:/sbin:/usr/bin:/usr/sbin',
 	} ->
 	exec {'squld spool chown':
-		command	=> "chown -R nobody:nobody /var/spool/squid",
+		command	=> "chown -R $owner:$owner /var/spool/squid",
 		require	=> File['/var/spool/squid'],
-		unless	=> "ls -ld /var/spool/squid/ |grep $owner",
+		unless	=> "ls -ld /var/spool/squid/ |grep '$owner $owner'",
 		path	=> '/bin:/sbin:/usr/bin:/usr/sbin',
 	} ->
 	exec {'init squid swap storage': 
