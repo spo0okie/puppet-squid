@@ -34,7 +34,10 @@ ccf4ab51771cacd46d\.com
 oneclient\.sfx\.ms
 
 #ктото чтото качал и меня это напрягало //Ревякин
-mycdn.com
+mycdn\.com
 
 #windows store
 wns\.windows\.com
+
+#adobe creative cloud download
+ccmdls\.adobe\.com
