@@ -1,5 +1,6 @@
 #iphones
 apple\.com
+icloud\.com
 
 #ну попробуем. трафика может и не много, зато соединений куча
 android\.clients\.google\.com
@@ -41,3 +42,4 @@ wns\.windows\.com
 
 #adobe creative cloud download
 ccmdls\.adobe\.com
+
