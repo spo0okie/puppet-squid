@@ -72,4 +72,12 @@ class squid::install5 {
 		unless	=> "test -e /usr/sbin/squid",
 	} ->
 	file {'/etc/systemd/system/squid.service': source=>'puppet:///modules/squid/squid.service'}
+	exec {'squid_unitfile_reload':
+		command		=> 'systemctl daemon-reload',
+		subscribe	=> File['/etc/systemd/system/squid.service'],
+		refreshonly	=> true,
+		path	=> '/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin'
+		
+	}
+
 }
