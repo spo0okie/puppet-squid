@@ -1,6 +1,13 @@
 #устанавливает 5й сквид с сорцов
+#сорцы взяты отсюда: https://github.com/measurement-factory/squid
+#потомучто здесь [http://lists.squid-cache.org/pipermail/squid-users/2018-July/018636.html] люди пришли
+#к выводу, что в ванильном сквиде сломана одновременная работа ssl-bump splice и delay_pool
+#по сути фикс конкретно этой проблемы тут: https://github.com/measurement-factory/squid/commit/0f50bc82bae29a30f4dae79dad5426055178e231
+#можно попробовать сделать патч на ванильный сквид. но это не оч быстро.
 class squid::install5 {
+	#папка в которой будем работать
 	$tmpdir='/tmp/squid_inst'
+	#куда распакуем сорцы
 	$srcdir="$tmpdir/squid"
 
 	#сносим все что стоит из пакетов
@@ -63,21 +70,26 @@ class squid::install5 {
 		path	=> '/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin',
 		unless	=> "test -e $srcdir/Makefile",
 	} ->
+
+	#собственно только теперь мы наконец собираем и сразу ставим
 	exec {'squid5_build_make_install':
-		command => "make install || rm -rf $tmpdir",
-#		command => "make install",
+		command => "make install || rm -rf $tmpdir",	#или у нас все круто собирается и инсталлируется или мы все удаляем, чтобы попробовать с чистого листа
+		#command => "make install",	#ну это план Б для отладки, если мы хотим разбираться что конкретно там не собирается
 		timeout	=> 3000,	#сборка быстро не делается
 		cwd		=> $srcdir,
 		path	=> '/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin',
 		unless	=> "test -e /usr/sbin/squid",
 	} ->
+
+	#добавляем юнитфайл для systemd
 	file {'/etc/systemd/system/squid.service': source=>'puppet:///modules/squid/squid.service'}
+
+	#если по юнитфайлу есть изменения - говорим systemd перечитать его
 	exec {'squid_unitfile_reload':
 		command		=> 'systemctl daemon-reload',
 		subscribe	=> File['/etc/systemd/system/squid.service'],
 		refreshonly	=> true,
 		path	=> '/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin'
-		
 	}
 
 }
