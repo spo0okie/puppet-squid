@@ -43,3 +43,4 @@ wns\.windows\.com
 #adobe creative cloud download
 ccmdls\.adobe\.com
 
+operacdn\.com
