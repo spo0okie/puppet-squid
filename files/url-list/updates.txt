@@ -24,6 +24,7 @@ dl\.delivery\.mp\.microsoft\.com
 #хз что это, но куча траффика
 officecdn\.microsoft\.com\.edgesuite\.net
 officecdn\.microsoft\.com
+content\.office\.net
 watson\.telemetry\.microsoft\.com
 events\.data\.microsoft\.com
 
