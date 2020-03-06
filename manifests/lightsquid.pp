@@ -1,9 +1,10 @@
 class squid::lightsquid {
-	package {'perl-CGI':
-		ensure			=> installed,
-	} ->
+#	package {'perl-CGI':
+#		ensure			=> installed,
+#	} ->
 	file {'/var/www/lightsquid':
-		require			=> Package['httpd','perl-CGI'],
+#		require			=> Package['httpd','perl-CGI'],
+		require			=> Package['httpd'],
 		ensure			=> directory,
 		mode			=> '0755',
 		source			=> 'puppet:///modules/squid/lightsquid',

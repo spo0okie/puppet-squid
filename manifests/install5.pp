@@ -30,7 +30,7 @@ class squid::install5 {
 	#собираем
 	exec {'squid5_build_libtoolize':
 		command => 'libtoolize --force',
-		require => Package['libtool-ltdl-devel','autoconf','automake'],
+		require => Package[$common::packages::libtoolize],
 		unless	=> "test -e $srcdir/cfgaux/ltmain.sh",
 		cwd		=> $srcdir,
 		path	=> '/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin'
@@ -38,28 +38,28 @@ class squid::install5 {
 	} ->
 	exec {'squid5_build_aclocal':
 		command => 'aclocal',
-		require => Package['libtool-ltdl-devel','autoconf','automake'],
+		require => Package['autoconf','automake'],
 		cwd		=> $srcdir,
 		unless	=> "test -e $srcdir/aclocal.m4",
 		path	=> '/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin'
 	} ->
 	exec {'squid5_build_autoheader':
 		command => 'autoheader',
-		require => Package['libtool-ltdl-devel','autoconf','automake'],
+		require => Package['autoconf','automake'],
 		unless	=> "test -e $srcdir/include/autoconf.h.in",
 		cwd		=> $srcdir,
 		path	=> '/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin'
 	} ->
 	exec {'squid5_build_automake':
 		command => 'automake --add-missing',
-		require => Package['libtool-ltdl-devel','autoconf','automake'],
+		require => Package['automake'],
 		cwd		=> $srcdir,
 		path	=> '/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin',
 		unless	=> "test -e $srcdir/Makefile.in",
 	} ->
 	exec {'squid5_build_autoconf':
 		command => 'autoconf',
-		require => Package['libtool-ltdl-devel','autoconf','automake'],
+		require => Package['autoconf'],
 		cwd		=> $srcdir,
 		path	=> '/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin',
 		unless	=> "test -e $srcdir/configure",

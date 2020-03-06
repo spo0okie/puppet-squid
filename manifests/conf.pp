@@ -1,5 +1,7 @@
 class squid::conf {
-	$owner='nobody'
+	include common::usr
+	#$owner="${::common::usr::nobody}:${::common::usr::nogroup}"
+	$owner=$::common::usr::nobody
 	file {'/etc/squid/squid.conf':
 		require => File['/etc/systemd/system/squid.service'],
 		ensure	=> file,
@@ -62,21 +64,21 @@ class squid::conf {
 		path	=> '/bin:/sbin:/usr/bin:/usr/sbin',
 	}->
 	exec {'squld logs chown':
-		command	=> "chown -R $owner:$owner /var/log/squid",
+		command	=> "chown -R ${common::usr::nobody}:${common::usr::nogroup} /var/log/squid",
 		require	=> File['/var/log/squid'],
-		unless	=> "ls -ld /var/log/squid/ |grep '$owner $owner'",
+		unless	=> "ls -ld /var/log/squid/ |grep '${common::usr::nobody} ${common::usr::nogroup}'",
 		path	=> '/bin:/sbin:/usr/bin:/usr/sbin',
 	} ->
 	exec {'squld ssl_db chown':
-		command	=> "chown -R $owner:$owner /var/lib/ssl_db",
+		command	=> "chown -R ${common::usr::nobody}:${common::usr::nogroup} /var/lib/ssl_db",
 		require	=> File['/var/lib/ssl_db'],
-		unless	=> "ls -ld /var/lib/ssl_db |grep '$owner $owner'",
+		unless	=> "ls -ld /var/lib/ssl_db |grep '${common::usr::nobody} ${common::usr::nogroup}'",
 		path	=> '/bin:/sbin:/usr/bin:/usr/sbin',
 	} ->
 	exec {'squld spool chown':
-		command	=> "chown -R $owner:$owner /var/spool/squid",
+		command	=> "chown -R ${common::usr::nobody}:${common::usr::nogroup} /var/spool/squid",
 		require	=> File['/var/spool/squid'],
-		unless	=> "ls -ld /var/spool/squid/ |grep '$owner $owner'",
+		unless	=> "ls -ld /var/spool/squid/ |grep '${common::usr::nobody} ${common::usr::nogroup}'",
 		path	=> '/bin:/sbin:/usr/bin:/usr/sbin',
 	} ->
 	exec {'init squid swap storage': 
