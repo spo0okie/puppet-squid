@@ -14,7 +14,7 @@ $squidhost[0]="127.0.0.1";
 /* Squid proxy server port */
 $squidport[0]=3128;
 /* cachemgr_passwd in squid.conf. Leave blank to disable authorisation */
-$cachemgr_passwd[0]="";
+$cachemgr_passwd[0]="sqstat";
 /* Resolve user IP addresses or print them as numbers only [true|false] */
 $resolveip[0]=true; 
 /* uncomment next line if you want to use hosts-like file. 

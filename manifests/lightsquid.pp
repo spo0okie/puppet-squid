@@ -3,7 +3,6 @@ class squid::lightsquid {
 #		ensure			=> installed,
 #	} ->
 	file {'/var/www/lightsquid':
-#		require			=> Package['httpd','perl-CGI'],
 		require			=> Package['httpd'],
 		ensure			=> directory,
 		mode			=> '0755',
@@ -27,10 +26,10 @@ class squid::lightsquid {
 			}],
 			options			=>  ['+ExecCGI'],
 		},],
-		docroot_owner	=> 'apache',
-		docroot_group	=> 'apache',
+		docroot_owner	=> $::apache::params::user,
+		docroot_group	=> $::apache::params::group,
 		override		=>  ['All'],
-		directoryindex  => 'index.cgi',
+		directoryindex  => 'index.cgi'
 	}
 }
 
