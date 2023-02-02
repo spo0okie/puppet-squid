@@ -15,7 +15,7 @@ class squid::lightsquid {
 		minute			=> '*/7'
 	} ->
 	apache::vhost { 'lightsquid.html':
-		port			=> '3181',
+		port			=> 3181,
 		servername		=> "${::fqdn}",
 		docroot			=> '/var/www/lightsquid',
 		directories		=> [{

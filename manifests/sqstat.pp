@@ -7,7 +7,7 @@ class squid::sqstat {
 		recurse		=> true
 	} ->
 	apache::vhost { 'sqstat.html':
-		port			=> '3180',
+		port			=> 3180,
 		servername		=> "${::fqdn}",
 		docroot			=> '/var/www/sqstat',
 		docroot_owner   => $::apache::params::user,
